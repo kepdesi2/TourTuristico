@@ -1,0 +1,28 @@
+<form #rutasForm="ngForm" (ngSubmit)="onSubmit(rutasForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="rutasService.selectedruta.$key">
+  <div class="form-group">
+    <label>nombre</label>
+    <input class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="rutasService.selectedruta.nombre" placeholder="nombre" required>
+  </div>
+  <div class="form-group">
+    <label>descripcion</label>
+    <input class="form-control" name="descripcion" #descripcion="ngModel" [(ngModel)]="rutasService.selectedruta.descripcion" placeholder="descripcion">
+  </div>
+  <div class="form-group">
+    <label>precio</label>
+    <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-dollar"></i>
+        </div>
+        <input class="form-control" name="precio" #precio="ngModel" [(ngModel)]="rutasService.selectedruta.precio" placeholder="precio">
+    </div>
+  </div>
+  <div class="form-group">
+      <button class="btn btn-default" type="submit" [disabled]="!rutasForm.valid">
+      <i class="fa fa-floppy-o"></i>
+       Submit</button>
+    <button class="btn btn-default" type="button" (click)="resetForm(rutasForm)">
+      <i class="fa fa-repeat"></i>
+       Reset</button>
+  </div>
+</form>
